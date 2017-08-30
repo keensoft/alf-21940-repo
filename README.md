@@ -12,7 +12,7 @@ This patch, remove the parameter locale in Solr6 http requests.
 The plugin is licensed under the [LGPL v3.0](http://www.gnu.org/licenses/lgpl-3.0.html). 
 
 **State**
-Current patch release is 1.0.0
+Current patch release is 1.1.0
 
 **Compatibility** 
 The current version has been developed using Alfresco 201702 and Alfresco SDK 3.0.1
@@ -23,7 +23,7 @@ Downloading the ready-to-deploy-plugin
 --------------------------------------
 The binary distribution is made of one JAR file to be deployed in Alfresco as a repo module:
 
-* [repo JAR](https://github.com/keensoft/alf-21940-repo/releases/download/201707/patch-alf-21940-repo-1.0.0.jar)
+* [repo JAR](https://github.com/keensoft/alf-21940-repo/releases/download/1.1.0/patch-alf-21940-repo-1.1.0.jar)
 
 You can install it by copying JAR file to `$ALFRESCO_HOME/modules/platform` and re-starting Alfresco.
 

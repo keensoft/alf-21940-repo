@@ -11,9 +11,11 @@ import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.URIException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+// Find results for every locale by using '*' as parameter value
 public class EnhancedSolrQueryHTTPClient extends SolrQueryHTTPClient {
 	
     static Log logger = LogFactory.getLog(EnhancedSolrQueryHTTPClient.class);
@@ -25,11 +27,18 @@ public class EnhancedSolrQueryHTTPClient extends SolrQueryHTTPClient {
 			SolrJsonProcessor<?> jsonProcessor, String spellCheckParams)
 			throws UnsupportedEncodingException, IOException, HttpException, URIException, JSONException {
 		
-		int posPrev = url.toString().indexOf("&locale=");
+		// Sanitize URL
+	    int posPrev = url.toString().indexOf("&locale=");
 		int posAfter = url.toString().indexOf("&", posPrev + 1 + LOCALE_PARAM.length());
-		url = url.toString().substring(0, posPrev) + url.toString().substring(posAfter);
-		
+		url = url.toString().substring(0, posPrev) + "&locale=*" + url.toString().substring(posAfter);
 		logger.debug("Sanitized URL: " + url);
+		
+		// Sanitize Body
+		body.remove("locales");
+		JSONArray locales = new JSONArray();
+		locales.put("*");
+		body.put("locales", locales);
+		logger.debug("Sanitized Body: " + body);
 		
 		return super.postSolrQuery(httpClient, url, body, jsonProcessor, spellCheckParams);
 		
