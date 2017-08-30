@@ -1,11 +1,10 @@
 
-Alfresco Patch to 
+Alfresco Patch to Solr6 multiple locale available search
 ================================================
 
 Described at issue ![ALF-21940](https://issues.alfresco.com/jira/browse/ALF-21940?jql=project%20%3D%20ALF)
 
-Alfresco when store a new document save a property called `sys:locale`, this property is based in the language of the browser. When another user with the browser in a different language go search the document by the name can not found it, because the `locale` value is different.
-
+Alfresco when store a new document save a property called `sys:locale`, this property is based in the browser selected language. When another user with the browser in a different language go search for the document by the name can not found it, because the `locale` value is different. This problem is only detected in Solr6.
 
 This patch, remove the parameter locale in Solr6 http requests.
 
@@ -24,7 +23,7 @@ Downloading the ready-to-deploy-plugin
 --------------------------------------
 The binary distribution is made of one JAR file to be deployed in Alfresco as a repo module:
 
-* [repo JAR]()
+* [repo JAR](https://github.com/keensoft/alf-21940-repo/releases/download/201707/patch-alf-21940-repo-1.0.0.jar)
 
 You can install it by copying JAR file to `$ALFRESCO_HOME/modules/platform` and re-starting Alfresco.
 
