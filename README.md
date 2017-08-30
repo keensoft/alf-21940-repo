@@ -5,6 +5,7 @@ Alfresco Patch to Solr6 multiple locale search
 Described at issue [ALF-21940](https://issues.alfresco.com/jira/browse/ALF-21940)
 
 **WARNING**
+
 Thanks to information provided by Axel Faust we know that SOLR 6 can be configured to work as SOLR 4 was working in previous Alfresco versions by removing or renaming `/opt/solr6/solrhome/conf/shared.properties`. You can perform this operation and there is **no** need to install this addon. 
 
 Once this `shared.properties` file has been removed or renamed, every searching will be performed in Alfresco with cross-language support and you'll get the same behaviour that is provided by this patch.
