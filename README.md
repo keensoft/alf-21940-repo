@@ -2,7 +2,7 @@
 Alfresco Patch to Solr6 multiple locale search
 ================================================
 
-Described at issue ![ALF-21940](https://issues.alfresco.com/jira/browse/ALF-21940?jql=project%20%3D%20ALF)
+Described at issue [ALF-21940](https://issues.alfresco.com/jira/browse/ALF-21940)
 
 Alfresco when store a new document save a property called `sys:locale`, this property is based in the browser selected language. When another user with the browser in a different language go search for the document by the name can not found it, because the `locale` value is different. This problem is only detected in Solr6.
 
