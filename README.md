@@ -4,6 +4,13 @@ Alfresco Patch to Solr6 multiple locale search
 
 Described at issue [ALF-21940](https://issues.alfresco.com/jira/browse/ALF-21940)
 
+**WARNING**
+Thanks to information provided by Axel Faust we know that SOLR 6 can be configured to work as SOLR 4 was working in previous Alfresco versions by removing or renaming `/opt/solr6/solrhome/conf/shared.properties`. You can perform this operation and there is **no** need to install this addon. 
+
+Once this `shared.properties` file has been removed or renamed, every searching will be performed in Alfresco with cross-language support and you'll get the same behaviour that is provided by this patch.
+
+**Description**
+
 Alfresco when store a new document save a property called `sys:locale`, this property is based in the browser selected language. When another user with the browser in a different language go search for the document by the name can not found it, because the `locale` value is different. This problem is only detected in Solr6.
 
 This patch, remove the parameter locale in Solr6 http requests.
