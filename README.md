@@ -4,6 +4,9 @@ Alfresco Patch to Solr6 multiple locale search
 
 Described at issue [ALF-21940](https://issues.alfresco.com/jira/browse/ALF-21940)
 
+This code is not ready for **production** environments as documented in:
+https://github.com/Alfresco/SearchServices/issues/234#issuecomment-699843033
+
 **DISCLAIMER**
 
 SOLR 6 can be configured to work as SOLR 4 was working in previous Alfresco versions by uncommenting **alfresco.cross.locale.datatype.N** properties in `/opt/solr6/solrhome/conf/shared.properties`.
@@ -14,9 +17,14 @@ alfresco.cross.locale.datatype.1={http://www.alfresco.org/model/dictionary/1.0}c
 alfresco.cross.locale.datatype.2={http://www.alfresco.org/model/dictionary/1.0}mltext
 ```
 
-You can perform this operation and there is **no** need to install this addon. 
+You can perform this operation and there is **no** need to install this addon.
 
 Once this `shared.properties` file has been modified is required to rebuild SOLR indexes. After that, every searching will be performed in Alfresco with cross-language support and you'll get the same behaviour that is provided by this patch.
+
+**IMPORTANT NOTICE!!!**
+Please, don't use this plugin in production environments, as it has **big** impact in search performance, apply the configuration described in the above lines instead.
+
+
 
 **Description**
 
